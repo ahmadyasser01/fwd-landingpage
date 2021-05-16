@@ -30,11 +30,13 @@ let newFrag = document.createDocumentFragment();
 
 let createLi = (section, frag) => {
     const secName = section.getAttribute('data-nav');
+    const secId = section.getAttribute('id');
     const newLi = document.createElement('li');
     const newAnchor = document.createElement('a');
     const secNameNode = document.createTextNode(secName);
 
     newAnchor.classList.add('menu__link');
+    newAnchor.setAttribute('href', `#${secId}`);
     newAnchor.appendChild(secNameNode);
     newLi.appendChild(newAnchor);
     frag.appendChild(newLi);
