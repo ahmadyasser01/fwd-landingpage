@@ -20,6 +20,8 @@
 const navBarList = document.getElementById('navbar__list');
 let sections = document.querySelectorAll('section');
 let newFrag = document.createDocumentFragment();
+var isScrolling;
+
 
 
 /**
@@ -27,6 +29,7 @@ let newFrag = document.createDocumentFragment();
  * Start Helper Functions
  *
 */
+sections[0].classList.remove('your-active-class') // remove the active class from first section 
 
 let createLi = (section, frag) => {
     const secName = section.getAttribute('data-nav');
@@ -42,6 +45,13 @@ let createLi = (section, frag) => {
     frag.appendChild(newLi);
 }
 
+let isInView = (section) => {
+    const domRect = section.getBoundingClientRect();
+    return (domRect.top >= 0 && domRect.top <= 150 || domRect.top <= 0 && domRect.top >= -200)
+
+
+
+}
 
 /**
  * End Helper Functions
@@ -57,7 +67,20 @@ let buildNav = () => {
 buildNav();
 
 // Add class 'active' to section when near top of viewport
+function addActiveClass() {
 
+    window.clearTimeout(isScrolling);
+
+    for (section of sections) {
+        if (isInView(section)) {
+            section.classList.add("your-active-class");
+            console.log(section.getAttribute('id'));
+
+        }
+        else
+            section.classList.remove("your-active-class");
+    }
+}
 
 // Scroll to anchor ID using scrollTO event
 
@@ -74,5 +97,13 @@ buildNav();
 // Scroll to section on link click
 
 // Set sections as active
+
+document.addEventListener('scroll', () => {
+    window.clearTimeout(isScrolling);
+    // Set a timeout to run after scrolling ends
+    isScrolling = setTimeout(addActiveClass(), 100);
+});
+
+
 
 
