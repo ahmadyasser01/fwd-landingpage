@@ -21,6 +21,7 @@ var navBarList = document.getElementById('navbar__list');
 let sections = document.querySelectorAll('section');
 let newFrag = document.createDocumentFragment();
 var isScrolling;
+const backToTop = document.getElementById('back-top');
 
 
 
@@ -48,9 +49,6 @@ let createLi = (section, frag) => {
 let isInView = (section) => {
     const domRect = section.getBoundingClientRect();
     return (domRect.top <= 250 && domRect.top >= -50)
-
-
-
 }
 
 /**
@@ -111,6 +109,18 @@ document.addEventListener('scroll', () => {
     isScrolling = setTimeout(addActiveClass(), 50);
 });
 
+// back to top button functionality 
+window.addEventListener('scroll', () => {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+        backToTop.style.display = "block";
+    else
+        backToTop.style.display = "none";
+})
+
+//adding function of button to scroll to top
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+})
 
 
 

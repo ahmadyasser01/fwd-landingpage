@@ -227,3 +227,22 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+/* back to top button style */
+#back-top {
+    display: none;
+    background-color: black;
+    position: fixed;
+    bottom: 1vh;
+    right: 1vh;
+    color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  padding: 0.75rem;
+
+}
+#back-top:hover {
+    background-color: #555;
+  }
