@@ -17,7 +17,7 @@
  * Define Global Variables
  *  
 */
-const navBarList = document.getElementById('navbar__list');
+var navBarList = document.getElementById('navbar__list');
 let sections = document.querySelectorAll('section');
 let newFrag = document.createDocumentFragment();
 var isScrolling;
@@ -47,7 +47,7 @@ let createLi = (section, frag) => {
 
 let isInView = (section) => {
     const domRect = section.getBoundingClientRect();
-    return (domRect.top >= 0 && domRect.top <= 150 || domRect.top <= 0 && domRect.top >= -200)
+    return (domRect.top <= 250 && domRect.top >= -50)
 
 
 
@@ -71,14 +71,21 @@ function addActiveClass() {
 
     window.clearTimeout(isScrolling);
 
-    for (section of sections) {
-        if (isInView(section)) {
-            section.classList.add("your-active-class");
-            console.log(section.getAttribute('id'));
+
+
+    for (let i = 0; i < sections.length; ++i) {
+        const activeLink = navBarList.getElementsByTagName('li')[i].getElementsByTagName('a')[0];
+        if (isInView(sections[i])) {
+            sections[i].classList.add("your-active-class");
+            const secNumber = sections[i].getAttribute('data-nav');
+            activeLink.classList.add('active-link');
+            console.log(secNumber);
 
         }
-        else
-            section.classList.remove("your-active-class");
+        else {
+            sections[i].classList.remove("your-active-class");
+            activeLink.classList.remove('active-link');
+        }
     }
 }
 
@@ -101,7 +108,7 @@ function addActiveClass() {
 document.addEventListener('scroll', () => {
     window.clearTimeout(isScrolling);
     // Set a timeout to run after scrolling ends
-    isScrolling = setTimeout(addActiveClass(), 100);
+    isScrolling = setTimeout(addActiveClass(), 50);
 });
 
 
