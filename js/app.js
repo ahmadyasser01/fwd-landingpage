@@ -50,9 +50,10 @@ let createLi = (section, frag) => {
 
     newAnchor.appendChild(secNameNode);
     newLi.appendChild(newAnchor);
-    frag.appendChild(newLi);
+    frag.appendChild(newLi); // append to frag
 }
 
+//helper method to check if this section currently in the view or not
 let isInView = (section) => {
     const domRect = section.getBoundingClientRect();
     return (domRect.top <= 250 && domRect.top >= -50)
