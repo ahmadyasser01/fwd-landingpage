@@ -1,13 +1,40 @@
-# Landing Page Project
+# FWD LANDING PAGE PROJECT
 
-## Table of Contents
 
-* [Instructions](#instructions)
+Udacity / fwd Landing Page project
 
-## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+
+## content
+
+* [project structure](project-structure)
+* [features](#features)
+* [How to use the project](#how-to-use-the-project)
+
+
+
+
+# project structure
+* css
+    * styles.css    
+* index.html
+* js
+  * app.js
+* README.md
+
+
+
+
+
+# features
+ 
+ * Dynamically adding nav bar to the page using JS,
+ * scrolls to anchors from navigation,
+ * highlights section in viewport upon scrolling.
+ * scroll to top upon clicking on top button
+
+
+
+# How to use The project
