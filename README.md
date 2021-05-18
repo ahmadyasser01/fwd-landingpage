@@ -38,3 +38,4 @@ Udacity / fwd Landing Page project
 
 
 # How to use The project
+you can download the code or <a href="https://ahmadyasser01.github.io/fwd-landingpage/">view the landing page here </a>
