@@ -86,10 +86,18 @@ section {
     color: #000;
 }
 
-.navbar__menu .menu__link:hover , .active-link {
+.active-link {
     background: #333;
     color: #fff !important;
     transition: ease 0.3s all;
+}
+@media only screen and (hover:hover){
+    .navbar__menu .menu__link:hover , .active-link {
+        background: #333;
+        color: #fff !important;
+        transition: ease 0.3s all;
+    }
+
 }
 
 /* Header Styles */
@@ -246,3 +254,4 @@ section.your-active-class .landing__container::after {
 #back-top:hover {
     background-color: #555;
   }
+  
